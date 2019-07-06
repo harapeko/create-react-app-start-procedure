@@ -1,5 +1,49 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# I want to start this procedure from create-react-app
+
+1. create project with ts
+
+```sh
+$ npx create-react-app app --typescript
+```
+
+2. add add prettier, precommit
+
+```sh
+$ yarn add -D prettier husky lint-staged
+```
+
+3. add stylelint
+
+```sh
+$ yarn add -D stylelint stylelint-order stylelint-config-rational-order stylelint-config-prettier prettier-stylelint
+```
+
+`.stylelintrc.js`
+
+```js
+module.exports = {
+  plugins: [
+    'stylelint-order',
+    'stylelint-config-rational-order/plugin',
+  ],
+  extends: [
+    'stylelint-config-rational-order',
+    './node_modules/prettier-stylelint/config.js',
+    'stylelint-config-prettier',
+  ],
+  rules: {
+    'indentation': 2,
+    'string-quotes': 'single',
+  },
+  ignoreFiles: [
+    '**/node_modules/**',
+    'src/styles/**'
+  ],
+};
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
