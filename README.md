@@ -50,6 +50,7 @@ module.exports = {
 - react hooks
 - for ts
 - jest
+- es
 - prettier
 
 ```sh
@@ -58,10 +59,134 @@ $ npx install-peerdeps --dev eslint-config-airbnb
 $ yarn add -D eslint-plugin-react-hooks \
 @typescript-eslint/eslint-plugin @typescript-eslint/parser \
 eslint-plugin-jest \
+eslint-plugin-prefer-arrow \
 eslint-config-prettier eslint-plugin-prettier
 ```
 
+5. add eslintrc.js
 
+```js
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+    'jest/globals': true
+  },
+  extends: [
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react'
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    '__DEV__': true
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    project: './tsconfig.json',
+    sourceType: 'module'
+  },
+  plugins: [
+    '@typescript-eslint',
+    'jest',
+    'prettier',
+    'prefer-arrow',
+    'react',
+    'react-hooks'
+  ],
+  root: true,
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', 'jsx', '.ts', '.tsx']
+      }
+    },
+    react: {
+      version: 'detect'
+    }
+  },
+  rules: {
+    // eslint official
+    'newline-before-return': 'error',
+    'no-console': 'warn',
+    'require-yield': 'error',
+
+    // @typescript-eslint
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    // '@typescript-eslint/explicit-member-accessibility': 'off',
+    indent: 'off',
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+
+    // prefer-arrow
+    'prefer-arrow/prefer-arrow-functions': [
+      'error',
+      {
+        disallowPrototype: true,
+        singleReturnOnly: true,
+        classPropertiesAllowed: false
+      }
+    ],
+
+    // react
+    'react/jsx-filename-extension': [1, {extensions: ['jsx', 'tsx'] }],
+    // 'react/jsx-one-expression-per-line': 'none',
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    'react/prop-types': 'off',
+    'react/prefer-stateless-function': 'off',
+
+    // react hooks
+    'react-hooks/rules-of-hooks': 'error',
+
+    // import
+    'import/extensions': [
+      'error',
+      'always',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
+    ],
+    'import/prefer-default-export': 'off',
+
+    // prettier
+    'prettier/prettier': [
+      'error', {
+        bracketSpacing: true,
+        printWidth: 80,
+        semi: true,
+        singleQuote: true,
+        trailingComma: 'all',
+        useTabs: false
+      }
+    ]
+  }
+};
+```
+
+6. change browser list
+
+```json
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+```
 
 ## Available Scripts
 
