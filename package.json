@@ -17,8 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "stylelint": "stylelint 'src/**/*.css'",
-    "eslint": "eslint --ext ./ 'src/**/*.{js,jsx,ts,tsx}'"
+    "lint:style": "stylelint 'src/**/*.css'",
+    "lint:es": "eslint --ext ./ 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,5 +50,10 @@
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^3.0.0"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "trailingComma": "all"
   }
 }
