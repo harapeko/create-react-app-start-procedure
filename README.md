@@ -193,6 +193,18 @@ module.exports = {
   "lint": "yarn lint:style & yarn lint:es"
 ```
 
+8. fix style
+
+```sh
+$ yarn lint:style --fix
+```
+
+9. fix es, and add annotation
+
+```sh
+$ yarn lint:es --fix
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
