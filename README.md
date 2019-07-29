@@ -205,6 +205,9 @@ $ yarn lint:style --fix
 $ yarn lint:es --fix
 ```
 
+10. add precommit
+
+
 ## Available Scripts
 
 In the project directory, you can run:

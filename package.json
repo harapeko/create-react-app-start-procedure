@@ -17,6 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "precommit": "lint-staged",
     "lint:style": "stylelint 'src/**/*.css'",
     "lint:es": "eslint --ext ./ 'src/**/*.{js,jsx,ts,tsx}'",
     "lint": "yarn lint:style & yarn lint:es"
@@ -51,6 +52,16 @@
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ]
   },
   "prettier": {
     "bracketSpacing": false,
