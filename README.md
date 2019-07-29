@@ -44,6 +44,25 @@ module.exports = {
 };
 ```
 
+4. add eslint packages
+
+- eslint
+- react hooks
+- for ts
+- jest
+- prettier
+
+```sh
+$ npx install-peerdeps --dev eslint-config-airbnb
+
+$ yarn add -D eslint-plugin-react-hooks \
+@typescript-eslint/eslint-plugin @typescript-eslint/parser \
+eslint-plugin-jest \
+eslint-config-prettier eslint-plugin-prettier
+```
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
