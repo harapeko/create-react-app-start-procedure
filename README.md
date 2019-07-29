@@ -247,7 +247,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### `yarn lint:style`
 
+option `--fix`
+
 ### `yarn lint:es`
+
+option `--fix`
 
 ### `yarn lint`
 
